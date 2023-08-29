@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { Outlet } from 'react-router-dom'
+import Nav from './components/navbar'
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
+    <Nav />
+    <Outlet />
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} class="logo" alt="Vite logo" />
         </a>
@@ -27,7 +28,7 @@ function App() {
       </div>
       <p class="read-the-docs">
         Click on the Vite and Solid logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
