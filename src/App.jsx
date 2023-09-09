@@ -1,14 +1,35 @@
 import { useState } from 'react'
 import './App.css'
 import { Outlet } from 'react-router-dom'
-import Nav from './components/navbar'
+import Nav from '../components/navbar'
+import MainPage from './pages/MainPg'
+import PortfolioPage from './pages/PortfolioPg'
 function App() {
   // const [count, setCount] = useState(0)
 
+  const [currentPage, setCurrentPage] = useState("Home")
+  function render() {
+    if (currentPage == "Home") {
+      return <MainPage />
+    } else if (currentPage == "Portfolio") {
+      return <PortfolioPage />
+    }
+  }
   return (
     <>
-    <Nav />
-    <Outlet />
+    <button
+    onClick={() => {
+        setCurrentPage("Home")
+    }}
+>Home</button>
+
+<button
+    onClick={() => {
+        setCurrentPage("Portfolio")
+    }}
+>Projects</button>
+      <Nav />
+      {render()}
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} class="logo" alt="Vite logo" />
@@ -33,4 +54,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
