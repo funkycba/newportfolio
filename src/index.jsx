@@ -4,7 +4,7 @@ import './index.css'
 import MainPage from './pages/MainPg.jsx'
 import PortfolioPage from './pages/PortfolioPg.jsx'
 import AboutPage from './pages/AboutPg.jsx'
-import {createBrowserRouter} from 'react-router-dom'
+import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -16,18 +16,18 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: 'portfolio',
+        path: '/portfolio',
         element: <PortfolioPage />,
       },
       {
-        path: 'about',
+        path: '/about',
         element: <AboutPage />,
       }
       
       
     ],
   },
-])
+],{})
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App router={router}/>
+  <RouterProvider router={router}/>
 )
